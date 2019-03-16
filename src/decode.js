@@ -1,7 +1,6 @@
 const emojilib = require('emojilib')
 const convertBase = require('./convertBase')
 const dec2bin = require('./utils').dec2bin
-const bitwise = require('bitwise')
 const codePointsToEmojiName = require('./codePoints').codePointsToEmojiName
 const emojiCharToCodePoints = require('./codePoints').emojiCharToCodePoints
 

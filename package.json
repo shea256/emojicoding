@@ -5,8 +5,6 @@
   "author": "Ryan Shea",
   "license": "MIT",
   "dependencies": {
-    "bitwise": "^2.0.3",
-    "emoji-regex": "^8.0.0",
     "emojilib": "^2.4.0"
   },
   "devDependencies": {
