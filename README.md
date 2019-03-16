@@ -28,5 +28,5 @@ import emojicoding from 'emojicoding'
 
 ```
 > var recoveredKey = emojicoding.decode(emojiKey); console.log(recoveredKey)
-<Buffer e0 9c 56 3a 56 1d e6 ae 00>
+<Buffer e0 9c 56 3a 56 1d e6 ae>
 ```

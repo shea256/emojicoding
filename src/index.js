@@ -6,4 +6,5 @@ module.exports = {
 	bufferToEmojiNames: require('./encode').bufferToEmojiNames,
 	emojiNamesToEmojiChars: require('./encode').emojiNamesToEmojiChars,
 	emojiCharsToEmojiNames: require('./decode').emojiCharsToEmojiNames,
+	hexStringToBuffer: require('./utils').hexStringToBuffer
 }

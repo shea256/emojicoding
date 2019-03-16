@@ -25,7 +25,7 @@ function emojiNamesToBuffer(emojiNames) {
 		emojiIndices.push(emojiIndex)
 	})
 
-	const buffer = Buffer.from(convertBase(emojiIndices, 10, 8, true))
+	const buffer = Buffer.from(convertBase(emojiIndices, 10, 8, false))
 	return buffer
 }
 
