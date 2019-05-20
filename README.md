@@ -6,7 +6,7 @@ Emojicoding is a library for encoding data to and from emojibase - a base 1024 e
 
 ### Getting Started
 
-##### Step 1: Install with npm or Yarn
+#### Step 1: Install with npm or Yarn
 
 npm:
 
@@ -20,10 +20,18 @@ Yarn:
 yarn add emojicoding
 ```
 
-##### Step 2: Import the library
+#### Step 2: Import the library
+
+Modern JavaScript (ES6+)
 
 ```js
 import emojicoding from 'emojicoding'
+```
+
+Legacy JavaScript (ES5-)
+
+```js
+var emojicoding = require('emojicoding')
 ```
 
 ### Encode to Emoji
@@ -35,14 +43,14 @@ First, generate your key:
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
-...then encode it with the buffer value:
+Then encode it with the buffer value:
 
 ```
 > var emojiKey = emojicoding.encodeToEmoji(keyBuffer); console.log(emojiKey)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
-...or pass it in as a hex string:
+Or pass it in as a hex string:
 
 ```
 > var keyHex = keyBuffer.toString('hex'); console.log(keyHex)
@@ -60,14 +68,14 @@ First, get your emoji key:
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
-...then decode it to a buffer:
+Then decode it to a buffer:
 
 ```
 > var recoveredKey = emojicoding.decodeFromEmoji(emojiKey, 'buffer'); console.log(recoveredKey)
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
-...or decode it to a hex string:
+Or decode it to a hex string:
 
 ```
 > var recoveredKey = emojicoding.decodeFromEmoji(emojiKey, 'hex'); console.log(recoveredKey)
