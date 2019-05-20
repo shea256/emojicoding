@@ -1,5 +1,7 @@
 # Emojicoding
 
+WARNING: This library is not extensively tested, so please use at your own risk. Alternatively, feel free to help out expanding on the test suite.
+
 ### About
 
 Emojicoding is a library for encoding data to and from emojibase - a base 1024 encoding (10 bits of entropy per character), where each character is displayed as a single emoji.
