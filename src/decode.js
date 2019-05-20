@@ -11,6 +11,10 @@ function emojiCharsToEmojiNames(emojiChars) {
 		throw new TypeError('Input must not be empty')
 	}
 
+	if (!(emojiChars instanceof Array)) {
+		throw new TypeError('Input must be an array')
+	}
+
 	let emojiNames = []
 
 	emojiChars.forEach(emojiChar => {

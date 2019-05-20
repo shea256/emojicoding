@@ -4,22 +4,29 @@
 	1. Hex/buffer to emoji name
 	2. Emoji name to emoji
 	3. Emoji to emoji name
-	4. Emoji name to buffer
+	4. Emoji name to hex/buffer
 */
 
 const scenarios = [
 	{
-		label: 'sixteen random hex characters',
+		label: '16 random hex characters',
 		hexString: 'e09c563a561de6ae',
 		emojiNames: [ 'hammer', 'cactus', 't-rex', 'custard', 'fist', 'wine_glass', 'toolbox'],
 		emojis: [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ],
 		success: [true, true, true, true],
 	},
 	{
-		label: 'ten zeros',
+		label: '10 zeros',
 		hexString: '0000000000',
 		emojiNames: ['grinning', 'grinning', 'grinning', 'grinning'],
 		emojis: [ '😀', '😀', '😀', '😀' ],
+		success: [true, true, true, true],
+	},
+	{
+		label: '2 zeros',
+		hexString: '00',
+		emojiNames: ['grinning'],
+		emojis: [ '😀' ],
 		success: [true, true, true, true],
 	},
 	{
@@ -49,6 +56,13 @@ const scenarios = [
 		emojiNames: ['abc', 'abc', 'abc', 'abc'],
 		emojis: [],
 		success: [false, false, false, false],
+	},
+	{
+		label: 'non-list decoder input',
+		hexString: '00',
+		emojiNames: ['grinning'],
+		emojis: '😀',
+		success: [true, false, false, true],
 	},
 ]
 
