@@ -1,6 +1,6 @@
 # Emojicoding
 
-WARNING: This library is not extensively tested, so please use at your own risk. Alternatively, feel free to help out expanding on the test suite.
+**WARNING: This library is not extensively tested, so please use at your own risk. Alternatively, feel free to help out by expanding on the test suite.**
 
 ### About
 
