@@ -45,21 +45,3 @@ scenarios.forEach(scenario => {
 		}
 	})
 })
-
-
-
-//console.log('====================')
-//console.log(JSON.stringify(e))
-//console.log(e.message)
-//console.log(object.type)
-//console.log(object.error)
-//console.log(typeof object)
-//console.log(e instanceof TypeError)
-
-//.toThrowError(TypeError)
-//try {
-//} catch (e) {
-//	console.log(e)
-//	console.log(e.type)
-	//expect(e.type).toBe(TypeError)
-//}
