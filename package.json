@@ -5,7 +5,7 @@
   "author": "Ryan Shea",
   "license": "MIT",
   "dependencies": {
-    "emojilib": "^2.4.0"
+    "emojilib": "2.4.0"
   },
   "devDependencies": {
     "jest": "^24.5.0"
