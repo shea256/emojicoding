@@ -1,3 +1,12 @@
+/*
+	Tests on each scenario:
+
+	1. Hex/buffer to emoji name
+	2. Emoji name to emoji
+	3. Emoji to emoji name
+	4. Emoji name to buffer
+*/
+
 const scenarios = [
 	{
 		label: 'sixteen random hex characters',
@@ -33,6 +42,13 @@ const scenarios = [
 		emojiNames: ['round_pushpin', 'round_pushpin', 'round_pushpin', 'round_pushpin'],
 		emojis: ['📍', '📍', '📍', '📍'],
 		success: [false, true, true, false],
+	},
+	{
+		label: 'invalid emoji names',
+		hexString: undefined,
+		emojiNames: ['abc', 'abc', 'abc', 'abc'],
+		emojis: [],
+		success: [false, false, false, false],
 	},
 ]
 

@@ -32,16 +32,32 @@ scenarios.forEach(scenario => {
 		}
 	})
 
-	test(`${scenario.label} - convert hex OR buffer to emojis`, () => {
+	test(`${scenario.label} - convert hex to emojis`, () => {
 		if (scenario.success[0] && scenario.success[1]) {
-			expect(JSON.stringify(encode.encode(scenario.hexString)))
+			expect(JSON.stringify(encode.encodeToEmoji(scenario.hexString)))
 			.toBe(JSON.stringify(scenario.emojis))
 		} else {
 			try {
-				expect(encode.encode(undefined))
+				expect(encode.encodeToEmoji(scenario.hexString))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}
 		}
 	})
+
+	test(`${scenario.label} - convert buffer to emojis`, () => {
+		if (scenario.success[0] && scenario.success[1]) {
+			scenario.buffer = hexStringToBuffer(scenario.hexString)
+			expect(JSON.stringify(encode.encodeToEmoji(scenario.buffer)))
+			.toBe(JSON.stringify(scenario.emojis))
+		} else {
+			scenario.buffer = undefined
+			try {
+				expect(encode.encodeToEmoji(scenario.buffer))
+			} catch (e) {
+				expect(e).toBeInstanceOf(TypeError)
+			}
+		}
+	})
+
 })

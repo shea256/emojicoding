@@ -14,7 +14,7 @@ function emojiCharsToEmojiNames(emojiChars) {
 	let emojiNames = []
 
 	emojiChars.forEach(emojiChar => {
-		if (!isEmoji) {
+		if (!isEmoji(emojiChar)) {
 			throw 'Input contains non-emoji'
 		}
 
@@ -48,17 +48,30 @@ function emojiNamesToBuffer(emojiNames) {
 	})
 
 	const buffer = Buffer.from(convertBase(emojiIndices, 10, 8, false))
+
 	return buffer
 }
 
-function decode(emojiChars) {
+function decodeFromEmoji(emojiChars, returnType) {
+	// Convert the emoji chars to emoji names
 	const emojiNames = emojiCharsToEmojiNames(emojiChars)
+
+	// Convert the emoji names to a buffer
 	const buffer = emojiNamesToBuffer(emojiNames)
-	return buffer
+
+	if (returnType === 'buffer') {
+		// Return the buffer
+		return buffer
+	} else if (returnType === 'hex') {
+		// Return the buffer as a hex string
+		return buffer.toString('hex')
+	} else {
+		throw new Error('Invalid return type')
+	}
 }
 
 module.exports = {
-	decode,
+	decodeFromEmoji,
 	emojiCharsToEmojiNames,
 	emojiNamesToBuffer
 }

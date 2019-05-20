@@ -1,6 +1,6 @@
 module.exports = {
-	encode: require('./encode').encode,
-	decode: require('./decode').decode,
+	encodeToEmoji: require('./encode').encodeToEmoji,
+	decodeFromEmoji: require('./decode').decodeFromEmoji,
 	convertBase: require('./convertBase'),
 	emojiNamesToBuffer: require('./decode').emojiNamesToBuffer,
 	bufferToEmojiNames: require('./encode').bufferToEmojiNames,

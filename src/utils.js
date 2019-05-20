@@ -13,7 +13,9 @@ function hexStringToBuffer(hexString) {
 	if (!hexString.length) {
 		return Buffer.from([])
 	}
-	return Buffer.from(hexString.match(/.{1,2}/g).map(chunk => '0x' + chunk))
+	return Buffer.from(
+		hexString.match(/.{1,2}/g).map(chunk => '0x' + chunk)
+	)
 }
 
 function isEmoji(input) {

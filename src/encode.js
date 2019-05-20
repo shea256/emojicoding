@@ -43,9 +43,9 @@ function emojiNamesToEmojiChars(emojiNames) {
 	return emojiChars
 }
 
-function encode(input) {
+function encodeToEmoji(input) {
+	// Validate the input and extract the buffer
 	let dataBuffer = undefined
-
 	if (input === undefined) {
 		throw new TypeError('Input must not be undefined')
 	} else if (Buffer.isBuffer(input)) {
@@ -56,13 +56,18 @@ function encode(input) {
 		throw new TypeError('Input must be a buffer or hex string')
 	}
 
+	// Convert the buffer to emoji names
 	const emojiNames = bufferToEmojiNames(dataBuffer)
+
+	// Convert the emoji names to emoji characters
 	const emojiChars = emojiNamesToEmojiChars(emojiNames)
+
+	// Return the emoji characters
 	return emojiChars
 }
 
 module.exports = {
-	encode,
+	encodeToEmoji,
 	bufferToEmojiNames,
 	emojiNamesToEmojiChars
 }
