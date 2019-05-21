@@ -1,4 +1,4 @@
-# Emojicoding
+# Emojicoding (Base 1024)
 
 ![Emojicoding: Base 1024](/docs/emojicoding.png)
 
