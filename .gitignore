@@ -86,3 +86,6 @@ typings/
 
 # Unused Folder
 unused
+
+# Mac
+.DS_Store

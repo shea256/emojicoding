@@ -1,5 +1,7 @@
 # Emojicoding
 
+![Emojicoding: Base 1024](/docs/emojicoding.png)
+
 **WARNING: This library is not extensively tested, so please use at your own risk. Alternatively, feel free to help out by expanding on the test suite.**
 
 ### About
