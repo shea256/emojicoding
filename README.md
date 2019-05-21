@@ -32,10 +32,10 @@ Modern JavaScript (ES6+)
 import emojicoding from 'emojicoding'
 ```
 
-Legacy JavaScript (ES5-)
+Node
 
 ```js
-var emojicoding = require('emojicoding')
+const emojicoding = require('emojicoding')
 ```
 
 ## Encoding
@@ -43,23 +43,23 @@ var emojicoding = require('emojicoding')
 First, get the value you'd like to encode. Here we'll create a random sequence of bytes:
 
 ```
-> var value = crypto.randomBytes(8); console.log(value)
+> let bufferValue = crypto.randomBytes(8); console.log(bufferValue)
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
 Then encode it with the buffer value:
 
 ```
-> var emojiValue = emojicoding.encodeToEmoji(value); console.log(emojiValue)
+> let emojiValue = emojicoding.encodeToEmoji(bufferValue); console.log(emojiValue)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
 Or pass it in as a hex string:
 
 ```
-> var hexValue = value.toString('hex'); console.log(hexValue)
+> let hexValue = bufferValue.toString('hex'); console.log(hexValue)
 'e09c563a561de6ae'
-> var emojiValue = emojicoding.encodeToEmoji(hexValue); console.log(emojiValue)
+> let emojiValue = emojicoding.encodeToEmoji(hexValue); console.log(emojiValue)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
@@ -75,14 +75,14 @@ First, get your emoji value:
 Then decode it to a buffer:
 
 ```
-> var recoveredBuffer = emojicoding.decodeFromEmoji(emojiValue, 'buffer'); console.log(recoveredBuffer)
+> let recoveredBuffer = emojicoding.decodeFromEmoji(emojiValue, 'buffer'); console.log(recoveredBuffer)
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
 Or decode it to a hex string:
 
 ```
-> var recoveredHex = emojicoding.decodeFromEmoji(emojiValue, 'hex'); console.log(recoveredHex)
+> let recoveredHex = emojicoding.decodeFromEmoji(emojiValue, 'hex'); console.log(recoveredHex)
 'e09c563a561de6ae'
 ```
 
@@ -91,7 +91,7 @@ Or decode it to a hex string:
 ### Example 1: Bitcoin Addresses
 
 ```
-> let bs58check = require('bs58check')
+> const bs58check = require('bs58check')
 > let bitcoinAddress = '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
 > let bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex')
 > console.log(bitcoinAddressHex)
