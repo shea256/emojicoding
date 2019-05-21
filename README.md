@@ -40,49 +40,49 @@ var emojicoding = require('emojicoding')
 
 ## Encoding
 
-First, generate your key:
+First, get the value you'd like to encode. Here we'll create a random sequence of bytes:
 
 ```
-> var keyBuffer = crypto.randomBytes(8); console.log(keyBuffer)
+> var value = crypto.randomBytes(8); console.log(value)
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
 Then encode it with the buffer value:
 
 ```
-> var emojiKey = emojicoding.encodeToEmoji(keyBuffer); console.log(emojiKey)
+> var emojiValue = emojicoding.encodeToEmoji(value); console.log(emojiValue)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
 Or pass it in as a hex string:
 
 ```
-> var keyHex = keyBuffer.toString('hex'); console.log(keyHex)
+> var hexValue = value.toString('hex'); console.log(hexValue)
 'e09c563a561de6ae'
-> var emojiKey = emojicoding.encodeToEmoji(keyHex); console.log(emojiKey)
+> var emojiValue = emojicoding.encodeToEmoji(hexValue); console.log(emojiValue)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
 ## Decoding
 
-First, get your emoji key:
+First, get your emoji value:
 
 ```
-> console.log(emojiKey)
+> console.log(emojiValue)
 [ '🔨', '🌵', '🦖', '🍮', '✊', '🍷', '🧰' ]
 ```
 
 Then decode it to a buffer:
 
 ```
-> var recoveredKey = emojicoding.decodeFromEmoji(emojiKey, 'buffer'); console.log(recoveredKey)
+> var recoveredBuffer = emojicoding.decodeFromEmoji(emojiValue, 'buffer'); console.log(recoveredBuffer)
 <Buffer e0 9c 56 3a 56 1d e6 ae>
 ```
 
 Or decode it to a hex string:
 
 ```
-> var recoveredKey = emojicoding.decodeFromEmoji(emojiKey, 'hex'); console.log(recoveredKey)
+> var recoveredHex = emojicoding.decodeFromEmoji(emojiValue, 'hex'); console.log(recoveredHex)
 'e09c563a561de6ae'
 ```
 
