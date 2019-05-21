@@ -110,3 +110,16 @@ Or decode it to a hex string:
 > console.log(emojiAccount)
 🙂 🚀 🧶 👋 👲 🏗 🌋 🏠 🐿 🚿 🍜 🍾 🧯 🦠 😡 🏍
 ```
+
+### Example 3: Stacks Addresses
+
+```
+> const c32check = require('c32check')
+> let stacksAddress = 'SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7'
+> let decodedAddress = c32check.c32addressDecode(stacksAddress)
+> console.log(decodedAddress)
+[ 22, 'a46ff88886c2ef9762d970b4d2c63678835bd39d' ]
+> let emojiAddress = emojicoding.encodeToEmoji(decodedAddress[1])
+> console.log(emojiAddress.join(' '))
+🤸‍♂️ 🚤 🌶 🖐 🚥 🛩 🌷 🚑 🐾 🖥 👮 🍔 🌗 🥵 🚇 🕳
+```
