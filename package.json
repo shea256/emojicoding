@@ -1,10 +1,11 @@
 {
   "name": "emojicoding",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.js",
   "author": "Ryan Shea",
   "license": "MIT",
   "dependencies": {
+    "bs58check": "^2.1.2",
     "emojilib": "2.4.0"
   },
   "devDependencies": {
