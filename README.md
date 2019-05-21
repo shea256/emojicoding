@@ -1,6 +1,6 @@
 # Emojicoding (Base 1024)
 
-![Emojicoding: Base 1024](/docs/emojicoding.png)
+![Emojicoding: Base 1024](https://raw.githubusercontent.com/shea256/emojicoding/master/docs/emojicoding.png)
 
 **WARNING: This library is not extensively tested, so please use at your own risk. Alternatively, feel free to help out by expanding on the test suite.**
 
