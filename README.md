@@ -95,7 +95,8 @@ Or decode it to a hex string:
 > var bitcoinAddress = '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
 > var bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex')
 > console.log(bitcoinAddressHex)
-'00f54a5851e9372b87810a8e60cdd2e7cfd80b6e31c7f18fe8'
+00f54a5851e9372b87810a8e60cdd2e7cfd80b6e31
 > var emojiAddress = emojicoding.encodeToEmoji(bitcoinAddressHex)
-'😁 💾 🛹 🤢 🌡 🔦 🚲 🔧 😫 🧛‍♀️ 🤯 🍁 💉 🤦‍♀️ ☃ 📡 👨‍💻 👈 👾 🗒'
+> console.log(emojiAddress.join(' ')
+😁 💾 🛹 🤢 🌡 🔦 🚲 🔧 😫 🧛‍♀️ 🤯 🍁 💉 🤦‍♀️ ☃ 📡 👩‍🏭
 ```
