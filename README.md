@@ -91,12 +91,22 @@ Or decode it to a hex string:
 ### Example 1: Bitcoin Addresses
 
 ```
-> var bs58check = require('bs58check')
-> var bitcoinAddress = '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
-> var bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex')
+> let bs58check = require('bs58check')
+> let bitcoinAddress = '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
+> let bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex')
 > console.log(bitcoinAddressHex)
 00f54a5851e9372b87810a8e60cdd2e7cfd80b6e31
-> var emojiAddress = emojicoding.encodeToEmoji(bitcoinAddressHex)
+> let emojiAddress = emojicoding.encodeToEmoji(bitcoinAddressHex)
 > console.log(emojiAddress.join(' ')
 😁 💾 🛹 🤢 🌡 🔦 🚲 🔧 😫 🧛‍♀️ 🤯 🍁 💉 🤦‍♀️ ☃ 📡 👩‍🏭
+```
+
+### Example 2: Ethereum Accounts
+
+```
+> let ethereumAccount = '0x02F024e0882B310c6734703AB9066EdD3a10C6e0'
+> let trimmedAccount = ethereumAccount.replace(/^0x/, '').toLowerCase()
+> let emojiAccount = emojicoding.encodeToEmoji(trimmedAccount).join(' ')
+> console.log(emojiAccount)
+🙂 🚀 🧶 👋 👲 🏗 🌋 🏠 🐿 🚿 🍜 🍾 🧯 🦠 😡 🏍
 ```
