@@ -8,7 +8,7 @@
 
 Emojicoding is a library for encoding data to and from emojibase - a base 1024 encoding (10 bits of entropy per character), where each character is displayed as a single emoji.
 
-With emojicoding, one can express a string of base 16 characters into many fewer emoji (approximately 40%).
+With emojicoding, one can express a string of base 16 characters as many fewer emoji (approximately 0.4x the number of hexadecimal characters).
 
 This makes it easier to visually compare two values.
 
