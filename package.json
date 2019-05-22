@@ -1,8 +1,27 @@
 {
   "name": "emojicoding",
-  "version": "0.2.1",
+  "version": "0.2.2",
+  "description": "A library for encoding numbers and strings into emoji (base 1024) and decoding them back again. Useful for visually comparing Bitcoin, Ethereum, Stacks and other blockchain / crypto wallet addresses.",
+  "keywords": [
+    "emoji",
+    "base", 
+    "encode",
+    "decode", 
+    "bitcoin",
+    "address", 
+    "ethereum", 
+    "ether", 
+    "account", 
+    "stacks", 
+    "blockstack", "wallet", 
+    "crypto", 
+    "blockchain"
+  ],
   "main": "src/index.js",
-  "author": "Ryan Shea",
+  "author": {
+    "name": "Ryan Shea",
+    "url": "https://shea.io"
+  },
   "license": "MIT",
   "dependencies": {
     "emojilib": "2.4.0"

@@ -8,6 +8,14 @@
 
 Emojicoding is a library for encoding data to and from emojibase - a base 1024 encoding (10 bits of entropy per character), where each character is displayed as a single emoji.
 
+With emojicoding, one can express a string of base 16 characters into many fewer emoji (approximately 40%).
+
+This makes it easier to visually compare two values.
+
+For example, one can take a traditional Bitcoin address (a special encoding of 26-35 alphanumeric characters, or 40 hexadecimal characters), and express it as 16 emoji.
+
+Try visually comparing each encoding and you'll see how much simpler and quicker it is to verify the address with the emoji representation.
+
 ## Getting Started
 
 ### Step 1: Install with npm or Yarn
