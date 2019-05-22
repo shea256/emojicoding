@@ -93,12 +93,12 @@ Or decode it to a hex string:
 ```
 > const bs58check = require('bs58check')
 > let bitcoinAddress = '1PMycacnJaSqwwJqjawXBErnLsZ7RkXUAs'
-> let bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex')
+> let bitcoinAddressHex = bs58check.decode(bitcoinAddress).toString('hex').replace(/^00/, '')
 > console.log(bitcoinAddressHex)
-00f54a5851e9372b87810a8e60cdd2e7cfd80b6e31
+f54a5851e9372b87810a8e60cdd2e7cfd80b6e31
 > let emojiAddress = emojicoding.encodeToEmoji(bitcoinAddressHex)
-> console.log(emojiAddress.join(' ')
-😁 💾 🛹 🤢 🌡 🔦 🚲 🔧 😫 🧛‍♀️ 🤯 🍁 💉 🤦‍♀️ ☃ 📡 👩‍🏭
+> console.log(emojiAddress.join(' '))
+📯 👨 🍓 🌝 🦸‍♀️ 🎗 🌕 🧖‍♂️ 🥪 🍏 🧯 🚖 🏫 🐛 🚐 🥩
 ```
 
 ### Example 2: Ethereum Accounts
