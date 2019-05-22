@@ -1,6 +1,37 @@
 const encode = require('./encode')
 const hexStringToBuffer = require('./utils').hexStringToBuffer
 const scenarios = require('./testScenarios')
+const util = require('util')
+
+/*
+			//console.log(scenario.buffer)
+			
+			// Delete this
+			let emojiNames = encode.bufferToEmojiNames(scenario.buffer)
+			let emojiNamesEveryFourth = []
+
+			for (var i = 0; i < emojiNames.length; i++) {
+				if (i % 4 === 3) {
+					emojiNamesEveryFourth.push(emojiNames[i])
+				}
+			}
+			console.log(
+				JSON.stringify(emojiNamesEveryFourth).replace("\n", "")
+			)
+			//console.log(util.inspect(emojiNamesEveryFourth, { maxArrayLength: null }))
+
+*/
+
+			/*let emoji = encode.emojiNamesToEmojiChars(scenario.emojiNames)
+			let emojiEveryFourth = []
+			for (var i = 0; i < emoji.length; i++) {
+				if (i % 4 === 3) {
+					emojiEveryFourth.push(emoji[i])
+				}
+			}
+			console.log(
+				JSON.stringify(emojiEveryFourth)
+			)*/
 
 scenarios.forEach(scenario => {
 	scenario.label = scenario.label || scenario.hexString
@@ -8,6 +39,7 @@ scenarios.forEach(scenario => {
 	test(`${scenario.label} - convert buffer to emoji names`, () => {
 		if (scenario.success[0]) {
 			scenario.buffer = hexStringToBuffer(scenario.hexString)
+
 			expect(JSON.stringify(encode.bufferToEmojiNames(scenario.buffer)))
 			.toBe(JSON.stringify(scenario.emojiNames))
 		} else {
@@ -21,6 +53,7 @@ scenarios.forEach(scenario => {
 
 	test(`${scenario.label} - convert emoji names to emojis`, () => {
 		if (scenario.success[1]) {
+
 			expect(JSON.stringify(encode.emojiNamesToEmojiChars(scenario.emojiNames)))
 			.toBe(JSON.stringify(scenario.emojis))
 		} else {

@@ -9,13 +9,12 @@ function isHex(input) {
   return input.match(hexPattern)[0] === input;
 }
 
-function hexStringToBuffer(hexString) {
-	if (!hexString.length) {
+function hexStringToBuffer(input) {
+	if (!input.length) {
 		return Buffer.from([])
 	}
-	return Buffer.from(
-		hexString.match(/.{1,2}/g).map(chunk => '0x' + chunk)
-	)
+	let hexString = input.replace(/^0x/, '')
+	return Buffer.from(hexString, 'hex')
 }
 
 function isEmoji(input) {
@@ -35,10 +34,24 @@ function isEmojiName(input) {
 	}
 }
 
+function padArray(array, padWith, numTimes) {
+	let paddedArray = []
+
+	for (var i = 0; i < array.length; i++) {
+		for (var j = 0; j < numTimes; j++) {
+			paddedArray.push(padWith)
+		}
+		paddedArray.push(array[i])
+	}
+
+	return paddedArray
+}
+
 module.exports = {
 	dec2bin,
 	isHex,
 	hexStringToBuffer,
 	isEmoji,
-	isEmojiName
+	isEmojiName,
+	padArray
 }
