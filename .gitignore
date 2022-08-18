@@ -89,3 +89,6 @@ unused
 
 # Mac
 .DS_Store
+
+# Custom
+data

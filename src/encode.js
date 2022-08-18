@@ -1,8 +1,10 @@
-const emojilib = require('emojilib')
 const convertBase = require('./convertBase')
-const isEmojiName = require('./utils').isEmojiName
+const isEmojiSlug = require('./utils').isEmojiSlug
 const hexStringToBuffer = require('./utils').hexStringToBuffer
 const isHex = require('./utils').isHex
+const orderedEmoji = require('./utils').orderedEmoji
+const slugs1024 = require('./utils').slugs1024
+const symbols1024 = require('./utils').symbols1024
 
 function bufferToEmojiNames(input) {
 	let dataBuffer
@@ -17,30 +19,33 @@ function bufferToEmojiNames(input) {
 	const tenBitChunks = convertBase(dataBuffer, 8, 10, true)
 
 	tenBitChunks.map(emojiIndex => {
-		const emojiName = emojilib.ordered[emojiIndex]
+		const emojiName = orderedEmoji[emojiIndex]
 		emojiNames.push(emojiName)
 	})
 
 	return emojiNames
 }
 
-function emojiNamesToEmojiChars(emojiNames) {
-	if (!emojiNames) {
+function emojiSlugsToEmojiSymbols(emojiSlugs) {
+	if (!emojiSlugs) {
 		throw new TypeError('Input must not be empty')
 	}
 
-	let emojiChars = []
+	let emojiSymbols = []
 
-	emojiNames.forEach(emojiName => {
-		if (!isEmojiName(emojiName)) {
-			throw new TypeError('Input contains invalid emoji name')
+	emojiSlugs.forEach(emojiSlug => {
+		if (!isEmojiSlug(emojiSlug)) {
+			throw new TypeError('Input contains invalid emoji slug')
 		}
 
-		const emojiChar = emojilib.lib[emojiName].char
-		emojiChars.push(emojiChar)
+		const emojiIndex = slugs1024.indexOf(emojiSlug)
+
+		const emojiSymbol = symbols1024[emojiIndex]
+
+		emojiSymbols.push(emojiSymbol)
 	})
 
-	return emojiChars
+	return emojiSymbols
 }
 
 function encodeToEmoji(input) {

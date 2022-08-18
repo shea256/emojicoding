@@ -883,10 +883,10 @@
   "resolved" "https://registry.npmjs.org/emoji-regex/-/emoji-regex-7.0.3.tgz"
   "version" "7.0.3"
 
-"emojilib@2.4.0":
-  "integrity" "sha512-5U0rVMU5Y2n2+ykNLQqMoqklN9ICBT/KsvC1Gz6vqHbz2AXXGkG+Pm5rMWk/8Vjrr/mY9985Hi8DYzn1F09Nyw=="
-  "resolved" "https://registry.npmjs.org/emojilib/-/emojilib-2.4.0.tgz"
-  "version" "2.4.0"
+"emojilib@^3.0.6":
+  "integrity" "sha512-/fjPG5+oTHzHDQhXwovBrggTNhOB6r2Ms1+e9ZX84kYov/5YK1b9Jk4f6uho8C9CmWkQzjTJXrphNkP27+7TqQ=="
+  "resolved" "https://registry.npmjs.org/emojilib/-/emojilib-3.0.6.tgz"
+  "version" "3.0.6"
 
 "end-of-stream@^1.1.0":
   "integrity" "sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q=="
@@ -1541,7 +1541,7 @@
     "execa" "^1.0.0"
     "throat" "^4.0.0"
 
-"jest-cli@^24.5.0":
+"jest-cli@^24.9.0":
   "integrity" "sha512-+VLRKyitT3BWoMeSUIHRxV/2g8y9gw91Jh5z2UmXZzkZKpbC08CSehVxgHUwTpy+HwGcns/tqafQDJW7imYvGg=="
   "resolved" "https://registry.npmjs.org/jest-cli/-/jest-cli-24.9.0.tgz"
   "version" "24.9.0"
@@ -1879,12 +1879,12 @@
     "supports-color" "^6.1.0"
 
 "jest@^24.5.0":
-  "integrity" "sha512-lxL+Fq5/RH7inxxmfS2aZLCf8MsS+YCUBfeiNO6BWz/MmjhDGaIEA/2bzEf9q4Q0X+mtFHiinHFvQ0u+RvW/qQ=="
-  "resolved" "https://registry.npmjs.org/jest/-/jest-24.5.0.tgz"
-  "version" "24.5.0"
+  "integrity" "sha512-YvkBL1Zm7d2B1+h5fHEOdyjCG+sGMz4f8D86/0HiqJ6MB4MnDc8FgP5vdWsGnemOQro7lnYo8UakZ3+5A0jxGw=="
+  "resolved" "https://registry.npmjs.org/jest/-/jest-24.9.0.tgz"
+  "version" "24.9.0"
   dependencies:
     "import-local" "^2.0.0"
-    "jest-cli" "^24.5.0"
+    "jest-cli" "^24.9.0"
 
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
@@ -3004,6 +3004,11 @@
   "version" "0.3.2"
   dependencies:
     "prelude-ls" "~1.1.2"
+
+"unicode-emoji-json@^0.3.1":
+  "integrity" "sha512-qA76zUIfOMSj+rdd8XAz/SpuubjTqoy2uW+dHrUVZivIvzMYzs7lNlbLMG4R32KB8SFwtVUJYQzbAafjBYDSuw=="
+  "resolved" "https://registry.npmjs.org/unicode-emoji-json/-/unicode-emoji-json-0.3.1.tgz"
+  "version" "0.3.1"
 
 "union-value@^1.0.0":
   "integrity" "sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg=="

@@ -4,17 +4,18 @@
   "description": "A library for encoding numbers and strings into emoji (base 1024) and decoding them back again. Useful for visually comparing Bitcoin, Ethereum, Stacks and other blockchain / crypto wallet addresses.",
   "keywords": [
     "emoji",
-    "base", 
+    "base",
     "encode",
-    "decode", 
+    "decode",
     "bitcoin",
-    "address", 
-    "ethereum", 
-    "ether", 
-    "account", 
-    "stacks", 
-    "blockstack", "wallet", 
-    "crypto", 
+    "address",
+    "ethereum",
+    "ether",
+    "account",
+    "stacks",
+    "blockstack",
+    "wallet",
+    "crypto",
     "blockchain"
   ],
   "main": "src/index.js",
@@ -24,7 +25,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "emojilib": "2.4.0"
+    "emojilib": "^3.0.6",
+    "unicode-emoji-json": "^0.3.1"
   },
   "devDependencies": {
     "jest": "^24.5.0"

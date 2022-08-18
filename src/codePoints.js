@@ -1,20 +1,21 @@
-const emojilib = require('emojilib')
+//const emojilibData = require('./utils').emojilibData
+const unicodeEmojiJson = require('./utils').unicodeEmojiJson
 
-function emojiCharToCodePoints(emojiChar) {
-	const emojiLength = emojiChar.length
+function emojiSymbolToCodePoints(emojiSymbol) {
+	const emojiLength = emojiSymbol.length
 	let codePoints = []
 	for (var i = 0; i < emojiLength; i++) {
-		codePoints.push(emojiChar.codePointAt(i))
+		codePoints.push(emojiSymbol.codePointAt(i))
 	}
 	const codePointsString = codePoints.join('-')
 	return codePointsString
 }
 
-function mapCodePointsToEmojiName() {
+/*function mapCodePointsToEmojiName() {
 	let codePointMap = {}
 
-	Object.keys(emojilib.lib).forEach(emojiNameKey => {
-		const emojiChar = emojilib.lib[emojiNameKey]['char']
+	Object.keys(unicodeEmojiJson).forEach(emojiNameKey => {
+		const emojiChar = unicodeEmojiJson[emojiNameKey]['char']
 		if (!emojiChar) {
 			return
 		}
@@ -26,11 +27,27 @@ function mapCodePointsToEmojiName() {
 	})
 
 	return codePointMap
+}*/
+
+function mapCodePointsToEmojiSlug() {
+	let codePointMap = {}
+
+	Object.keys(unicodeEmojiJson).forEach(emojiSymbolKey => {
+		const emojiSlug = unicodeEmojiJson[emojiSymbolKey]['slug']
+
+		const codePointsKey = emojiSymbolToCodePoints(emojiSymbolKey)
+
+		codePointMap[codePointsKey] = emojiSlug
+	})
+
+	return codePointMap
 }
 
-const codePointsToEmojiName = mapCodePointsToEmojiName()
+//const codePointsToEmojiName = mapCodePointsToEmojiName()
+const codePointsToEmojiSlug = mapCodePointsToEmojiSlug()
 
 module.exports = {
-	codePointsToEmojiName,
-	emojiCharToCodePoints
+	codePointsToEmojiSlug,
+	mapCodePointsToEmojiSlug,
+	emojiSymbolToCodePoints
 }

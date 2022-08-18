@@ -1,4 +1,14 @@
-const emojilib = require('emojilib')
+// Create: emojilibKeywords
+const emojilibKeywords = require('emojilib')
+// Create: emojilibData
+const unicodeEmojiJson = require('unicode-emoji-json')
+/*for (const emoji in emojilibData) {
+	emojilibData[emoji]['keywords'] = emojilibKeywords[emoji]
+}*/
+//console.log(emojilibData)
+
+// Create: orderedEmoji
+let orderedEmoji = require('unicode-emoji-json/data-ordered-emoji')
 
 function dec2bin(dec) {
 	return (dec >>> 0).toString(2)
@@ -26,14 +36,6 @@ function isEmoji(input) {
 	}
 }
 
-function isEmojiName(input) {
-	if (emojilib.ordered.indexOf(input) < 0) {
-		return false
-	} else {
-		return true
-	}
-}
-
 function padArray(array, padWith, numTimes) {
 	let paddedArray = []
 
@@ -47,11 +49,50 @@ function padArray(array, padWith, numTimes) {
 	return paddedArray
 }
 
+const emojiBreakpoints = [523, 1529, 1546, 1564]
+
+function makeSlugsList1024() {
+	let allSlugs = []
+	for (var key in unicodeEmojiJson) {
+		var value = unicodeEmojiJson[key]
+		allSlugs.push(value.slug)
+	}
+
+	let slugsList1 = allSlugs.slice(emojiBreakpoints[0], emojiBreakpoints[1])
+	let slugsList2 = allSlugs.slice(emojiBreakpoints[2], emojiBreakpoints[3])
+	let slugs1024 = slugsList1.concat(slugsList2)
+
+	return slugs1024
+}
+
+function makeEmojiSymbolsList1024() {
+	let emojiList1 = orderedEmoji.slice(emojiBreakpoints[0], emojiBreakpoints[1])
+	let emojiList2 = orderedEmoji.slice(emojiBreakpoints[2], emojiBreakpoints[3])
+	let emojiList = emojiList1.concat(emojiList2)
+	return emojiList
+}
+
+const slugs1024 = makeSlugsList1024()
+const symbols1024 = makeEmojiSymbolsList1024()
+
+function isEmojiSlug(input) {
+	if (slugs1024.indexOf(input) < 0) {
+		return false
+	} else {
+		return true
+	}
+}
+
 module.exports = {
 	dec2bin,
 	isHex,
 	hexStringToBuffer,
 	isEmoji,
-	isEmojiName,
-	padArray
+	isEmojiSlug,
+	padArray,
+	//emojilibData,
+	unicodeEmojiJson,
+	orderedEmoji,
+	slugs1024,
+	symbols1024
 }

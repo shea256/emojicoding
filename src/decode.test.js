@@ -7,11 +7,11 @@ scenarios.forEach(scenario => {
 
 	test(`${scenario.label} - convert emojis to emoji names`, () => {
 		if (scenario.success[2]) {
-			expect(JSON.stringify(decode.emojiCharsToEmojiNames(scenario.emojis)))
-			.toBe(JSON.stringify(scenario.emojiNames))
+			expect(JSON.stringify(decode.emojiCharsToEmojiSlugs(scenario.emojis)))
+			.toBe(JSON.stringify(scenario.emojiSlugs))
 		} else {
 			try {
-				expect(decode.emojiCharsToEmojiNames(scenario.emojis))
+				expect(decode.emojiCharsToEmojiSlugs(scenario.emojis))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}
@@ -21,11 +21,11 @@ scenarios.forEach(scenario => {
 	test(`${scenario.label} - convert emoji names to buffer`, () => {
 		if (scenario.success[3]) {
 			scenario.buffer = hexStringToBuffer(scenario.hexString)
-			expect(JSON.stringify(decode.emojiNamesToBuffer(scenario.emojiNames)))
+			expect(JSON.stringify(decode.emojiSlugsToBuffer(scenario.emojiSlugs)))
 			.toBe(JSON.stringify(scenario.buffer))
 		} else {
 			try {
-				expect(decode.emojiNamesToBuffer(scenario.emojiNames))
+				expect(decode.emojiSlugsToBuffer(scenario.emojiSlugs))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}

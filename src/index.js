@@ -9,5 +9,7 @@ module.exports = {
 	isHex: require('./utils').isHex,
 	hexStringToBuffer: require('./utils').hexStringToBuffer,
 	isEmoji: require('./utils').isEmoji,
-	isEmojiName: require('./utils').isEmojiName
+	isEmojiName: require('./utils').isEmojiName,
+	orderedEmoji: require('./utils').orderedEmoji,
+	emojilibData: require('./utils').emojilibData
 }
