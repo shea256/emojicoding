@@ -19,6 +19,12 @@ function convertBase(data, inBits, outBits, pad) {
       result.push((value << (outBits - bits)) & maxV)
     }
   } else {
+    console.log('convertBase.js 22')
+    console.log(bits)
+    console.log(inBits)
+    console.log(outBits)
+    console.log(pad)
+    console.log(value)
     if (bits >= inBits) throw new Error('Excess padding')
     if ((value << (outBits - bits)) & maxV) throw new Error('Non-zero padding')
   }

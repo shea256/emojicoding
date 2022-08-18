@@ -1,13 +1,13 @@
 const convertBase = require('./convertBase')
 const isEmoji = require('./utils').isEmoji
 const isEmojiSlug = require('./utils').isEmojiSlug
-const orderedEmoji = require('./utils').orderedEmoji
+//const orderedEmoji = require('./utils').orderedEmoji
 const codePointsToEmojiSlug = require('./codePoints').codePointsToEmojiSlug
 const emojiSymbolToCodePoints = require('./codePoints').emojiSymbolToCodePoints
 //const dec2bin = require('./utils').dec2bin
 const emojiSlugs = require('./utils').emojiSlugs
 
-function emojiCharsToEmojiSlugs(emojiChars) {
+function emojiSymbolsToEmojiSlugs(emojiChars) {
 	if (!emojiChars) {
 		throw new TypeError('Input must not be empty')
 	}
@@ -27,6 +27,9 @@ function emojiCharsToEmojiSlugs(emojiChars) {
 		const emojiSlug = codePointsToEmojiSlug[codePoints]
 		emojiSlugs.push(emojiSlug)
 	})
+
+	console.log('decode.js 31')
+	console.log(emojiSlugs)
 
 	return emojiSlugs
 }
@@ -53,14 +56,19 @@ function emojiSlugsToBuffer(emojiSlugs) {
 		}
 	})
 
-	const buffer = Buffer.from(convertBase(emojiIndices, 10, 8, false))
+	const buffer = Buffer.from(
+		convertBase(emojiIndices, 10, 8, false)
+	)
+
+	console.log('decode.js 61')
+	console.log(buffer)
 
 	return buffer
 }
 
-function decodeFromEmoji(emojiChars, returnType) {
+function decodeFromEmoji(emojiSymbols, returnType) {
 	// Convert the emoji chars to emoji names
-	const emojiSlugs = emojiCharsToEmojiSlugs(emojiChars)
+	const emojiSlugs = emojiSymbolsToEmojiSlugs(emojiSymbols)
 
 	// Convert the emoji names to a buffer
 	const buffer = emojiSlugsToBuffer(emojiSlugs)
@@ -78,6 +86,6 @@ function decodeFromEmoji(emojiChars, returnType) {
 
 module.exports = {
 	decodeFromEmoji,
-	emojiCharsToEmojiSlugs,
+	emojiSymbolsToEmojiSlugs,
 	emojiSlugsToBuffer
 }

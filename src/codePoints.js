@@ -46,8 +46,21 @@ function mapCodePointsToEmojiSlug() {
 //const codePointsToEmojiName = mapCodePointsToEmojiName()
 const codePointsToEmojiSlug = mapCodePointsToEmojiSlug()
 
+function swapKeyAndValue (json) {
+	var ret = {}
+
+	for (var key in json){
+	  ret[json[key]] = key
+	}
+
+	return ret
+  }
+
+const emojiSlugToCodePoints = swapKeyAndValue(codePointsToEmojiSlug)
+
 module.exports = {
 	codePointsToEmojiSlug,
 	mapCodePointsToEmojiSlug,
-	emojiSymbolToCodePoints
+	emojiSymbolToCodePoints,
+	emojiSlugToCodePoints
 }

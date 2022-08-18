@@ -5,20 +5,20 @@ const scenarios = require('./testScenarios')
 scenarios.forEach(scenario => {
 	scenario.label = scenario.label || scenario.hexString
 
-	test(`${scenario.label} - convert emojis to emoji names`, () => {
+	test(`${scenario.label} - convert emoji symbols to emoji slugs`, () => {
 		if (scenario.success[2]) {
-			expect(JSON.stringify(decode.emojiCharsToEmojiSlugs(scenario.emojis)))
+			expect(JSON.stringify(decode.emojiSymbolsToEmojiSlugs(scenario.emojis)))
 			.toBe(JSON.stringify(scenario.emojiSlugs))
 		} else {
 			try {
-				expect(decode.emojiCharsToEmojiSlugs(scenario.emojis))
+				expect(decode.emojiSymbolsToEmojiSlugs(scenario.emojis))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}
 		}
 	})
 
-	test(`${scenario.label} - convert emoji names to buffer`, () => {
+	test(`${scenario.label} - convert emoji slugs to buffer`, () => {
 		if (scenario.success[3]) {
 			scenario.buffer = hexStringToBuffer(scenario.hexString)
 			expect(JSON.stringify(decode.emojiSlugsToBuffer(scenario.emojiSlugs)))
@@ -32,9 +32,12 @@ scenarios.forEach(scenario => {
 		}
 	})
 
-	test(`${scenario.label} - convert emojis to buffer`, () => {
+	test(`${scenario.label} - convert emoji symbols to buffer`, () => {
 		if (scenario.success[2] && scenario.success[3]) {
 			scenario.buffer = hexStringToBuffer(scenario.hexString)
+			console.log('decode.test.js 38')
+			console.log(scenario.buffer)
+			console.log(decode.decodeFromEmoji(scenario.emojis, 'buffer'))
 			expect(JSON.stringify(decode.decodeFromEmoji(scenario.emojis, 'buffer')))
 			.toBe(JSON.stringify(scenario.buffer))
 		} else {
@@ -46,7 +49,7 @@ scenarios.forEach(scenario => {
 		}
 	})
 
-	test(`${scenario.label} - convert emojis to hex`, () => {
+	test(`${scenario.label} - convert emoji symbols to hex`, () => {
 		if (scenario.success[2] && scenario.success[3]) {
 			expect(JSON.stringify(decode.decodeFromEmoji(scenario.emojis, 'hex')))
 			.toBe(JSON.stringify(scenario.hexString))

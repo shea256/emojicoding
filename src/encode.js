@@ -2,11 +2,11 @@ const convertBase = require('./convertBase')
 const isEmojiSlug = require('./utils').isEmojiSlug
 const hexStringToBuffer = require('./utils').hexStringToBuffer
 const isHex = require('./utils').isHex
-const orderedEmoji = require('./utils').orderedEmoji
+//const orderedEmoji = require('./utils').orderedEmoji
 const slugs1024 = require('./utils').slugs1024
 const symbols1024 = require('./utils').symbols1024
 
-function bufferToEmojiNames(input) {
+function bufferToEmojiSlugs(input) {
 	let dataBuffer
 	if (!input || input === undefined || !Buffer.isBuffer(input)) {
 		throw new TypeError('Input must be a valid buffer')
@@ -14,16 +14,16 @@ function bufferToEmojiNames(input) {
 		dataBuffer = input
 	}
 
-	let emojiNames = []
+	let emojiSlugs = []
 
 	const tenBitChunks = convertBase(dataBuffer, 8, 10, true)
 
 	tenBitChunks.map(emojiIndex => {
-		const emojiName = orderedEmoji[emojiIndex]
-		emojiNames.push(emojiName)
+		const emojiSlug = slugs1024[emojiIndex]
+		emojiSlugs.push(emojiSlug)
 	})
 
-	return emojiNames
+	return emojiSlugs
 }
 
 function emojiSlugsToEmojiSymbols(emojiSlugs) {
@@ -61,18 +61,18 @@ function encodeToEmoji(input) {
 		throw new TypeError('Input must be a buffer or hex string')
 	}
 
-	// Convert the buffer to emoji names
-	const emojiNames = bufferToEmojiNames(dataBuffer)
+	// Convert the buffer to emoji slugs
+	const emojiSlugs = bufferToEmojiSlugs(dataBuffer)
 
-	// Convert the emoji names to emoji characters
-	const emojiChars = emojiNamesToEmojiChars(emojiNames)
+	// Convert the emoji slugs to emoji symbols
+	const emojiSymbols = emojiSlugsToEmojiSymbols(emojiSlugs)
 
-	// Return the emoji characters
-	return emojiChars
+	// Return the emoji symbols
+	return emojiSymbols
 }
 
 module.exports = {
 	encodeToEmoji,
-	bufferToEmojiNames,
-	emojiNamesToEmojiChars
+	bufferToEmojiSlugs,
+	emojiSlugsToEmojiSymbols
 }

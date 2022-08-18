@@ -36,29 +36,29 @@ const util = require('util')
 scenarios.forEach(scenario => {
 	scenario.label = scenario.label || scenario.hexString
 
-	test(`${scenario.label} - convert buffer to emoji names`, () => {
+	test(`${scenario.label} - convert buffer to emoji slugs`, () => {
 		if (scenario.success[0]) {
 			scenario.buffer = hexStringToBuffer(scenario.hexString)
 
-			expect(JSON.stringify(encode.bufferToEmojiNames(scenario.buffer)))
-			.toBe(JSON.stringify(scenario.emojiNames))
+			expect(JSON.stringify(encode.bufferToEmojiSlugs(scenario.buffer)))
+			.toBe(JSON.stringify(scenario.emojiSlugs))
 		} else {
 			try {
-				expect(encode.bufferToEmojiNames(undefined))
+				expect(encode.bufferToEmojiSlugs(undefined))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}
 		}
 	})
 
-	test(`${scenario.label} - convert emoji names to emojis`, () => {
+	test(`${scenario.label} - convert emoji slugs to emojis`, () => {
 		if (scenario.success[1]) {
 
-			expect(JSON.stringify(encode.emojiNamesToEmojiChars(scenario.emojiNames)))
+			expect(JSON.stringify(encode.emojiSlugsToEmojiSymbols(scenario.emojiSlugs)))
 			.toBe(JSON.stringify(scenario.emojis))
 		} else {
 			try {
-				expect(encode.emojiNamesToEmojiChars(scenario.emojiNames))
+				expect(encode.emojiSlugsToEmojiSymbols(scenario.emojiSlugs))
 			} catch (e) {
 				expect(e).toBeInstanceOf(TypeError)
 			}
